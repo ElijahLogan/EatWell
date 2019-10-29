@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Business from './components/Business/Business';
-import Yelp from './components/util/Yelp'
-import BusinessList from './components/BusinessList/BusinessList';
+import Recipe from './components/Recipe/Recipe';
+import Edam from './components/util/Edam';
+import RecipeList from './components/RecipeList/RecipeList';
 import SearchBar from './components/SearchBar/SearchBar';
 
 
@@ -11,22 +11,25 @@ import SearchBar from './components/SearchBar/SearchBar';
 class App extends Component {
   constructor(props){
     super(props)
-    this.state = {businesses:[]}
-    this.searchYelp = this.searchYelp.bind(this)
+    this.state = {recipes:[]}
+    this.searchEdam = this.searchEdam.bind(this)
   }
+async componentWillMount(){
 
-searchYelp(term,location,sortBy){
-  Yelp.search(term,location,sortBy).then(businesses=> {
-    console.log(businesses)
-    this.setState({businesses:businesses})
-  })
+}
+
+
+async searchEdam(term){
+  let recipes =  await Edam.search()
+    this.setState({recipes:recipes})
+    console.log(this.state.recipes)
 }
 
   render() {
     return (
       <div>
-        <SearchBar searchYelp = {this.searchYelp}/>
-        <BusinessList businesses = {this.state.businesses}/>
+        <SearchBar searchEdam = {this.searchEdam}/>
+       <RecipeList recipes = {this.state.recipes}/>
       </div>
 
     );
