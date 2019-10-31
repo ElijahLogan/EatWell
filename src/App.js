@@ -1,10 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
-import Recipe from './components/Recipe/Recipe';
+import NavBar from './components/Pages/NavBar';
+import Health from './components/Pages/Health';
+import Nutrition from './components/Pages/Nutrition';
+import RecipeSearch from './components/Pages/RecipeSearch';
+import Landing from './components/Pages/Landing';
 import Edam from './components/util/Edam';
-import RecipeList from './components/RecipeList/RecipeList';
-import SearchBar from './components/SearchBar/SearchBar';
+
+
 
 
 
@@ -20,17 +25,29 @@ async componentWillMount(){
 
 
 async searchEdam(term){
-  let recipes =  await Edam.search()
-    this.setState({recipes:recipes})
+  let recipes =  await Edam.search(term)
+  let data = recipes.data.recipes
+    this.setState({recipes:data})
     console.log(this.state.recipes)
 }
 
   render() {
     return (
-      <div>
-        <SearchBar searchEdam = {this.searchEdam}/>
-       <RecipeList recipes = {this.state.recipes}/>
-      </div>
+     
+  <Router>
+    <Fragment>
+          <NavBar/>
+         <Route exact path="/" component={Landing}/>
+         <section className="container">
+                <Switch>
+                  <Route exact path = '/recipe-search' component = {RecipeSearch} />
+                  <Route exact path ='/nutrition' component={Nutrition}/>
+                  <Route exact path ='/health-tips' component={Health}/>
+                </Switch>
+         </section>
+     </Fragment>
+  </Router>
+
 
     );
   }
