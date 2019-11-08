@@ -52,11 +52,7 @@ handleSearch(event){
   render(){
     return(
       <div className="SearchBar">
-  <div className="SearchBar-sort-options">
-    <ul>
-     {this.renderSortByOptions()}
-    </ul>
-  </div>
+ 
   <div className="SearchBar-fields">
     <input onChange={this.handleTermChange} placeholder="pick a food we'll give you a recipe" />
     

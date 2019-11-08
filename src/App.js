@@ -8,6 +8,8 @@ import Nutrition from './components/Pages/Nutrition';
 import RecipeSearch from './components/Pages/RecipeSearch';
 import Landing from './components/Pages/Landing';
 import Edam from './components/util/Edam';
+import Footer from './components/Pages/Footer';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
@@ -20,7 +22,7 @@ class App extends Component {
     this.searchEdam = this.searchEdam.bind(this)
   }
 async componentWillMount(){
-
+  
 }
 
 
@@ -41,10 +43,11 @@ async searchEdam(term){
          <section className="container">
                 <Switch>
                   <Route exact path = '/recipe-search' component = {RecipeSearch} />
-                  <Route exact path ='/nutrition' component={Nutrition}/>
+                  <Route exact path ='/questions' component={Nutrition}/>
                   <Route exact path ='/health-tips' component={Health}/>
                 </Switch>
          </section>
+         <Footer/>
      </Fragment>
   </Router>
 
