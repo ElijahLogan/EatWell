@@ -10,12 +10,14 @@ class Recipe extends React.Component{
       return(
     <div className="Recipe">
   <div className="image-container">
-    <img src={this.props.recipe.thumbnail} alt=''/>
+      <a href={this.props.recipe.source_url}>
+        <img src={this.props.recipe.image_url} alt=''/>
+      </a>
   </div>
   <h2>{this.props.recipe.title}</h2>
   <div className="Recipe-information">
     <div className="Recipe-address">
-      <p>{this.props.recipe.ingredients}</p>
+      <p>{this.props.recipe.publisher}</p>
       <p>{this.props.recipe.hrefs}</p>
       
     </div>
