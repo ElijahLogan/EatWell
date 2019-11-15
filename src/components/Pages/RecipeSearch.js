@@ -12,7 +12,7 @@ class RecipeSearch extends React.Component {
     this.searchEdam = this.searchEdam.bind(this)
   }
 componentWillMount(){
-  this.searchEdam()
+  this.searchEdam('apple')
 }
 
 
