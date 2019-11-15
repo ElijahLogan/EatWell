@@ -22,7 +22,7 @@ const Title = styled.h1`
 const Wrapper = styled.section`
   padding: 4em;
   
-  background-image: url(https://picsum.photos/id/17/1920/1920);
+  background-image: url(https://burst.shopifycdn.com/photos/dinner-party.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
